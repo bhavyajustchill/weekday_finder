@@ -1,38 +1,33 @@
-#include<iostream.h>
-#include<conio.h>
-//func. to display final ans.
+#include <iostream>
+using namespace std;
+
 void ans_day(int date,int month,int year,int dn)
 {
-	if(dn==0)
-	{
-		cout<<"On "<<date<<"/"<<month<<"/"<<year<<ends<<"it is Sunday.";
-	}
-	else if(dn==1)
-	{
-		cout<<"On "<<date<<"/"<<month<<"/"<<year<<ends<<"it is Monday.";
-	}
-	else if(dn==2)
-	{
-		cout<<"On "<<date<<"/"<<month<<"/"<<year<<ends<<"it is Tuesday.";
-	}
-	else if(dn==3)
-	{
-		cout<<"On "<<date<<"/"<<month<<"/"<<year<<ends<<"it is Wednesday.";
-	}
-	else if(dn==4)
-	{
-		cout<<"On "<<date<<"/"<<month<<"/"<<year<<ends<<"it is Thursday.";
-	}
-	else if(dn==5)
-	{
-		cout<<"On "<<date<<"/"<<month<<"/"<<year<<ends<<"it is Friday.";
-	}
-	else if(dn==6)
-	{
-		cout<<"On "<<date<<"/"<<month<<"/"<<year<<ends<<"it is Saturday.";
+	switch(dn) {
+		case 0:
+		cout<<date<<"/"<<month<<"/"<<year<<ends<<" is Sunday.";
+		break;
+		case 1:
+		cout<<date<<"/"<<month<<"/"<<year<<ends<<" is Monday.";
+		break;
+		case 2:
+		cout<<date<<"/"<<month<<"/"<<year<<ends<<" is Tuesday.";
+		break;
+		case 3:
+		cout<<date<<"/"<<month<<"/"<<year<<ends<<" is Wednesday.";
+		break;
+		case 4:
+		cout<<date<<"/"<<month<<"/"<<year<<ends<<" is Thursday.";
+		break;
+		case 5:
+		cout<<date<<"/"<<month<<"/"<<year<<ends<<" is Friday.";
+		break;
+		case 6:
+		cout<<date<<"/"<<month<<"/"<<year<<ends<<" is Saturday.";
+		break;
 	}
 }
-//finding month's extra days.
+
 int findMonth_extra_days(int m_no,int year)
 {
 	int extra_days=0;
@@ -130,7 +125,7 @@ int findMonth_extra_days(int m_no,int year)
 	}
 	return extra_days%7;
 }
-//finding day.
+
 int findDay(int date,int extra_days,int y_solved)
 {
 	int day_no;
@@ -138,7 +133,7 @@ int findDay(int date,int extra_days,int y_solved)
 	day_no=day_no%7;
 	return day_no;
 }
-//solving year_no.
+
 int year_solved(int year)
 {
 	int y_solve;
@@ -183,21 +178,22 @@ int year_solved(int year)
 int main()
 {
 	int dn,mn,ys,ed,date,year,month;
-	clrscr();
-	//get date.
+
 	cout<<"\nEnter Date:";
 	cin>>date;
-	//get month.
+
 	cout<<"\nEnter Month:";
 	cin>>month;
-	//get year.
+
 	cout<<"\nEnter Year:";
 	cin>>year;
+
 	ed=findMonth_extra_days(month,year);
 	ys=year_solved(year);
 	dn=findDay(date,ed,ys);
 	ans_day(date,month,year,dn);
-	getch();
+
 	return 0;
 }
-//made by rajkumartetar.
+// made by rajkumartetar.
+// altered by BhavyaJustChill
